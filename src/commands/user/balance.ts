@@ -1,5 +1,5 @@
 /**
- * user balance â€” show USDC balance, vault share balance, and redeemable assets.
+ * user balance - show USDC balance, vault share balance, and redeemable assets.
  *
  * Requires USER_PRIVATE_KEY or --address flag to identify the account.
  *
@@ -16,7 +16,7 @@ import type { ParsedFlags } from "../../cli";
 import { getApiConfig, apiUserBalance } from "../../api";
 
 const HELP = `
-user balance â€” Show balances for a vault user
+user balance - Show balances for a vault user
 
 USAGE
   wield user balance [flags]
@@ -55,7 +55,7 @@ export default async function balance(_args: string[], flags: ParsedFlags): Prom
 
   if (flags.raw.has("address")) {
     userAddr = flags.raw.get("address")! as Address;
-    // keyless path â€” only load RPC/address env
+    // keyless path - only load RPC/address env
     const env = loadEnv(["RPC_URL", "VAULT_ADDRESS", "USDC_ADDRESS"]);
     await showBalance(env, userAddr, flags);
   } else {
@@ -103,7 +103,7 @@ async function showBalance(
     [
       ["USDC (wallet)", formatUsdc(usdcBal, usdcDec)],
       ["Vault Shares", shareBal.toLocaleString()],
-      ["â†’ Redeemable", formatUsdc(redeemable, usdcDec)],
+      ["- Redeemable", formatUsdc(redeemable, usdcDec)],
     ],
   );
   log("");
@@ -120,9 +120,9 @@ function renderBalance(data: Record<string, unknown>, flags: ParsedFlags): void 
   table(
     ["Asset", "Balance"],
     [
-      ["USDC (wallet)", String(data.usdc ?? "â€”")],
-      ["Vault Shares", String(data.shares ?? "â€”")],
-      ["â†’ Redeemable", String(data.redeemableUsdc ?? "â€”")],
+      ["USDC (wallet)", String(data.usdc ?? "-")],
+      ["Vault Shares", String(data.shares ?? "-")],
+      ["- Redeemable", String(data.redeemableUsdc ?? "-")],
     ],
   );
   log("");

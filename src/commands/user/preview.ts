@@ -1,5 +1,5 @@
 /**
- * user preview â€” estimate shares for a deposit or assets for a redeem.
+ * user preview - estimate shares for a deposit or assets for a redeem.
  *
  * Read-only. No signer key required.
  *
@@ -15,7 +15,7 @@ import type { ParsedFlags } from "../../cli";
 import { getApiConfig, apiUserPreview } from "../../api";
 
 const HELP = `
-user preview â€” Estimate deposit/redeem outcomes
+user preview - Estimate deposit/redeem outcomes
 
 USAGE
   wield user preview --deposit <usdc> | --redeem <shares>
@@ -67,9 +67,9 @@ export default async function preview(_args: string[], flags: ParsedFlags): Prom
     }
     log("");
     log(c.bold(depositRaw ? "Deposit Preview (API)" : "Redeem Preview (API)"));
-    log(label(`  Deposit: ${d.deposit ?? "â€”"}`));
-    log(label(`  Shares: ${d.shares ?? "â€”"}`));
-    log(label(`  Assets: ${d.assets ?? "â€”"}`));
+    log(label(`  Deposit: ${d.deposit ?? "-"}`));
+    log(label(`  Shares: ${d.shares ?? "-"}`));
+    log(label(`  Assets: ${d.assets ?? "-"}`));
     log("");
     return;
   }
@@ -99,7 +99,7 @@ export default async function preview(_args: string[], flags: ParsedFlags): Prom
     log("");
     log(c.bold("Deposit Preview"));
     log(label(`  Deposit: ${formatUsdc(amount, 6)}`));
-    log(label(`  â†’ Shares: ${shares.toLocaleString()}`));
+    log(label(`  - Shares: ${shares.toLocaleString()}`));
     log("");
   } else {
     const shares = parseBigInt(redeemRaw!);
@@ -122,7 +122,7 @@ export default async function preview(_args: string[], flags: ParsedFlags): Prom
     log("");
     log(c.bold("Redeem Preview"));
     log(label(`  Redeem: ${shares.toLocaleString()} shares`));
-    log(label(`  â†’ Assets: ${formatUsdc(assets, 6)}`));
+    log(label(`  - Assets: ${formatUsdc(assets, 6)}`));
     log("");
   }
 }

@@ -1,5 +1,5 @@
 /**
- * format.ts — output formatting: tables, colors, value formatters, JSON output.
+ * format.ts - output formatting: tables, colors, value formatters, JSON output.
  *
  * ANSI colors are suppressed when stdout is not a TTY (piped/redirected).
  * All JSON output goes to stdout; human messages go to stderr when --json is set.
@@ -66,7 +66,7 @@ export function formatBps(bps: number): string {
 
 export function truncateHash(hash: string, chars = 6): string {
   if (hash.length <= chars * 2 + 5) return hash;
-  return `${hash.slice(0, chars + 2)}…${hash.slice(-chars)}`;
+  return `${hash.slice(0, chars + 2)}-${hash.slice(-chars)}`;
 }
 
 export function truncateAddress(addr: string): string {
@@ -94,16 +94,16 @@ export function table(headers: string[], rows: string[][]): void {
     Math.max(...all.map(r => (r[ci] ?? "").length)),
   );
 
-  const sep = TTY ? "│" : "|";
+  const sep = TTY ? "-" : "|";
   const pad = (s: string, w: number) => s.padEnd(w);
 
   // header row
   const hdr = headers.map((h, i) => c.bold(pad(h, widths[i]))).join(` ${sep} `);
 
   if (TTY) {
-    const top = "┌" + widths.map(w => "─".repeat(w + 2)).join("┬") + "┐";
-    const mid = "├" + widths.map(w => "─".repeat(w + 2)).join("┼") + "┤";
-    const bot = "└" + widths.map(w => "─".repeat(w + 2)).join("┴") + "┘";
+    const top = "-" + widths.map(w => "-".repeat(w + 2)).join("-") + "-";
+    const mid = "-" + widths.map(w => "-".repeat(w + 2)).join("-") + "-";
+    const bot = "-" + widths.map(w => "-".repeat(w + 2)).join("-") + "-";
     console.log(top);
     console.log(`${sep} ${hdr} ${sep}`);
     console.log(mid);

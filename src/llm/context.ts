@@ -1,5 +1,5 @@
 /**
- * context.ts — gather on-chain and SQLite data for LLM prompts.
+ * context.ts - gather on-chain and SQLite data for LLM prompts.
  *
  * Each gather* function collects relevant context from chain/DB for a specific
  * LLM command. Returns a plain object ready to be stringified into the prompt.

@@ -1,5 +1,5 @@
 /**
- * user withdraw â€” withdraw assets from the vault (by shares or asset amount).
+ * user withdraw - withdraw assets from the vault (by shares or asset amount).
  *
  * Required env: RPC_URL, USDC_ADDRESS, VAULT_ADDRESS, USER_PRIVATE_KEY
  */
@@ -15,7 +15,7 @@ import { UserAbort } from "../../cli";
 import { getApiConfig, apiUserWithdraw } from "../../api";
 
 const HELP = `
-user withdraw â€” Withdraw assets from the vault
+user withdraw - Withdraw assets from the vault
 
 USAGE
   wield user withdraw --assets <usdc> | --shares <n> [flags]
@@ -84,7 +84,7 @@ export default async function withdraw(_args: string[], flags: ParsedFlags): Pro
     log("");
     log(c.bold("WITHDRAW"));
     log(label(`Shares:   ${shares.toLocaleString()}`));
-    log(label(`â†’ Assets: ${formatUsdc(assets, 6)}`));
+    log(label(`- Assets: ${formatUsdc(assets, 6)}`));
     log(label(`Receiver: ${receiver}`));
     log(label(`Owner:    ${ownerAddr}`));
     log("");

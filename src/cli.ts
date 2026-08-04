@@ -1,5 +1,5 @@
 /**
- * cli.ts â€” command router and global flag handling.
+ * cli.ts - command router and global flag handling.
  *
  * Parses top-level namespace (agent|user), applies --json, --yes, --help,
  * --version globally, then dispatches to the appropriate command handler.
@@ -40,7 +40,7 @@ export interface ParsedFlags {
   yes: boolean;
   help: boolean;
   broadcast: boolean;
-  /** API key for thin-client mode (cli â†’ api â†’ chain). */
+  /** API key for thin-client mode (cli - api - chain). */
   apiKey: string | null;
   /** API base URL (default https://app.usewield.io). */
   apiUrl: string | null;
@@ -134,7 +134,7 @@ GLOBAL FLAGS
   --json       Machine-readable JSON output on stdout
   --yes        Skip confirmation prompts
   --help, -h   Show help for the command
-  --api-key    API key for thin-client mode (cli â†’ API â†’ chain)
+  --api-key    API key for thin-client mode (cli - API - chain)
   --api-url    API base URL (default https://app.usewield.io)
 
 EXAMPLES

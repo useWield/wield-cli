@@ -1,5 +1,5 @@
 /**
- * agent suggest â€” AI-powered operator recommendations.
+ * agent suggest - AI-powered operator recommendations.
  *
  * Reads vault state + recent decisions, feeds context to an LLM, and returns
  * actionable suggestions: when to rebalance, portfolio adjustments, risk flags.
@@ -8,7 +8,7 @@
  * Optional env: DB_PATH (for decision history context)
  * LLM env: at least one of OPENAI_API_KEY, ANTHROPIC_API_KEY, OLLAMA_HOST
  *
- * Read-only â€” never loads private keys.
+ * Read-only - never loads private keys.
  */
 
 import type { Address } from "viem";
@@ -20,7 +20,7 @@ import { SUGGEST_PROMPT, buildUserMessage } from "../../llm/prompts";
 import { gatherSuggestContext } from "../../llm/context";
 
 const HELP = `
-agent suggest â€” AI operator recommendations
+agent suggest - AI operator recommendations
 
 USAGE
   wield agent suggest [flags]
@@ -39,8 +39,8 @@ DESCRIPTION
   for operator recommendations: when to rebalance, portfolio adjustments,
   risk flags, and gas/timing notes.
 
-  Provider auto-detection: OPENAI_API_KEY â†’ OpenAI GPT-4o-mini,
-  ANTHROPIC_API_KEY â†’ Anthropic Claude Haiku, OLLAMA_HOST â†’ local Ollama.
+  Provider auto-detection: OPENAI_API_KEY - OpenAI GPT-4o-mini,
+  ANTHROPIC_API_KEY - Anthropic Claude Haiku, OLLAMA_HOST - local Ollama.
 
 EXAMPLES
   wield agent suggest
@@ -73,7 +73,7 @@ export default async function suggest(_args: string[], flags: ParsedFlags): Prom
 
   log("");
   log(`  ${c.bold("Wield Operator Suggestions")}`);
-  log(`  ${c.dim("â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€")}`);
+  log(`  ${c.dim("-")}`);
   log(`  Provider:  ${label(providerLabel(llm))}`);
   log(`  Vault:     ${label(vaultAddress)}`);
   log(`  DB:        ${label(skipDb ? "skipped" : (dbPath ? "enabled" : "not set (--no-db to skip)"))}`);
@@ -104,7 +104,7 @@ export default async function suggest(_args: string[], flags: ParsedFlags): Prom
     }
 
     // Pretty output
-    log(`  ${c.bold("â”€â”€ Operator Suggestions")} ${label(`(${providerLabel(llm)})`)}`);
+    log(`  ${c.bold("- Operator Suggestions")} ${label(`(${providerLabel(llm)})`)}`);
     log("");
     for (const line of response.split("\n")) {
       log(line.startsWith("#") ? `  ${c.bold(line)}` : `  ${line}`);

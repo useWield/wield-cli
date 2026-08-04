@@ -1,5 +1,5 @@
 /**
- * agent decisions â€” list recent decision rows from the agent DB.
+ * agent decisions - list recent decision rows from the agent DB.
  *
  * Required env: DB_PATH
  */
@@ -11,7 +11,7 @@ import type { ParsedFlags } from "../../cli";
 import { getApiConfig, apiAgentDecisions } from "../../api";
 
 const HELP = `
-agent decisions â€” List recent agent decisions
+agent decisions - List recent agent decisions
 
 USAGE
   wield agent decisions [flags]

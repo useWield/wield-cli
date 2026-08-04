@@ -1,5 +1,5 @@
 /**
- * api.ts â€” HTTP client for CLI-to-API communication.
+ * api.ts - HTTP client for CLI-to-API communication.
  *
  * When --api-key is provided, CLI becomes a thin client: reads go through
  * the API, and writes are signed locally then broadcast via the API.

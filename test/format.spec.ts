@@ -23,11 +23,11 @@ describe("formatUsdc", () => {
 });
 
 describe("formatBps", () => {
-  test("6000 bps → 60.00%", () => {
+  test("6000 bps - 60.00%", () => {
     expect(formatBps(6000)).toBe("60.00%");
   });
 
-  test("4000 bps → 40.00%", () => {
+  test("4000 bps - 40.00%", () => {
     expect(formatBps(4000)).toBe("40.00%");
   });
 });
@@ -38,7 +38,7 @@ describe("truncateHash", () => {
     const result = truncateHash(hash);
     expect(result).toStartWith("0xabcd");
     expect(result).toEndWith("cd1234");
-    expect(result).toContain("…");
+    expect(result).toContain("-");
   });
 
   test("keeps short hash unchanged", () => {

@@ -12,7 +12,7 @@ describe("loadEnv", () => {
     process.env.USDC_ADDRESS = "0x036CbD53842c5426634e7929541eC2318f3dCF7e";
   });
 
-  test("RPC_URL required — loads when set", () => {
+  test("RPC_URL required - loads when set", () => {
     const env = loadEnv(["RPC_URL"]);
     expect(env.RPC_URL).toBeString();
     expect(env.RPC_URL!.length).toBeGreaterThan(0);

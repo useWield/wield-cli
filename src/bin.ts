@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 /**
- * bin.ts â€” Wield CLI entry point.
+ * bin.ts - Wield CLI entry point.
  *
  * Usage: bun run src/bin.ts <agent|user> <command> [flags]
  */

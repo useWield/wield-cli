@@ -1,5 +1,5 @@
 /**
- * agent tick â€” one-shot rebalance (probe â†’ pick â†’ sign â†’ dry-run or submit).
+ * agent tick - one-shot rebalance (probe - pick - sign - dry-run or submit).
  *
  * DEFAULT: dry-run.  Broadcast requires BOTH --broadcast AND --yes.
  *
@@ -22,7 +22,7 @@ import { UserAbort } from "../../cli";
 import { getApiConfig, apiAgentTick } from "../../api";
 
 const HELP = `
-agent tick â€” Run one rebalance cycle (dry-run by default)
+agent tick - Run one rebalance cycle (dry-run by default)
 
 USAGE
   wield agent tick [flags]
@@ -94,13 +94,13 @@ export default async function tick(_args: string[], flags: ParsedFlags): Promise
         functionName: "convertToAssets",
         args: [10n ** 18n],
       }) as bigint;
-      // APY proxy: ratio scaled to bps (ratio/1e18 * 1e4 â†’ but ratio is already assets per 1 share-at-decimals)
+      // APY proxy: ratio scaled to bps (ratio/1e18 * 1e4 - but ratio is already assets per 1 share-at-decimals)
       // agent uses raw convertToAssets(1e18) / 1e12 as APY bps proxy
       const apyBps = Number(ratio / 10n ** 12n);
       samples.push({ address: asset as Address, apyBps: Math.min(apyBps, 999999) });
       log(label(`  ${asset}: ratio=${ratio}, apyBps=${apyBps}`));
     } catch (e: unknown) {
-      log(warn(`  ${asset}: RPC error â€” ${e instanceof Error ? e.message : String(e)}`));
+      log(warn(`  ${asset}: RPC error - ${e instanceof Error ? e.message : String(e)}`));
     }
   }
 
@@ -148,7 +148,7 @@ export default async function tick(_args: string[], flags: ParsedFlags): Promise
   }
 
   if (!doBroadcast) {
-    log(ok("DRY RUN COMPLETE â€” no transaction sent."));
+    log(ok("DRY RUN COMPLETE - no transaction sent."));
     log(label("Add --broadcast --yes to submit."));
     return;
   }

@@ -1,6 +1,6 @@
 # Wield CLI
 
-Command-line interface for the **Wield** vault protocol — agent-managed allocation for tokenized real-world assets and tokenized equities on **Robinhood Chain Mainnet (chain ID 4663)**.
+Command-line interface for the **Wield** vault protocol - agent-managed allocation for tokenized real-world assets and tokenized equities on **Robinhood Chain Mainnet (chain ID 4663)**.
 
 ## Install
 
@@ -91,7 +91,7 @@ Overrides: `OPENAI_MODEL`, `ANTHROPIC_MODEL`, `OLLAMA_MODEL`. Without a key the 
 | `--json` | JSON on stdout, human messages on stderr |
 | `--yes` | Skip confirmation prompts |
 | `--help`, `-h` | Help for any command |
-| `--api-key <key>` | Thin-client mode (CLI → API → chain) |
+| `--api-key <key>` | Thin-client mode (CLI - API - chain) |
 | `--api-url <url>` | API base URL (default `https://app.usewield.io`) |
 
 ### Thin-client mode
@@ -109,7 +109,7 @@ Get a key at https://app.usewield.io/app/settings.
 - Read-only commands (`status`, `decisions`, `analyze`, `explain`, `suggest`, `preview`, `balance --address`) never load a private key.
 - `agent` commands load only `AGENT_PRIVATE_KEY`; `user` commands load only `USER_PRIVATE_KEY`.
 - `agent tick` is dry-run by default and needs `--broadcast --yes` to send a transaction.
-- Robinhood Chain uses legacy gas pricing — the CLI sets this for you.
+- Robinhood Chain uses legacy gas pricing - the CLI sets this for you.
 
 ## Exit codes
 
@@ -133,4 +133,4 @@ bun run cli --help
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

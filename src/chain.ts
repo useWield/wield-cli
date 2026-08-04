@@ -1,5 +1,5 @@
 /**
- * chain.ts — factory functions for viem clients.
+ * chain.ts - factory functions for viem clients.
  * No top-level side effects. Each call creates a fresh instance.
  */
 

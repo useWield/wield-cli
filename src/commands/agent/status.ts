@@ -1,5 +1,5 @@
 /**
- * agent status â€” show vault state, agent identity, and last decision summary.
+ * agent status - show vault state, agent identity, and last decision summary.
  *
  * Required env: RPC_URL, VAULT_ADDRESS
  * Optional env: DB_PATH (for last-decision row)
@@ -14,7 +14,7 @@ import type { ParsedFlags } from "../../cli";
 import { getApiConfig, apiAgentStatus } from "../../api";
 
 const HELP = `
-agent status â€” Vault snapshot
+agent status - Vault snapshot
 
 USAGE
   wield agent status [flags]
@@ -107,7 +107,7 @@ function renderStatus(
   // Pretty output
   log("");
   log(`  ${c.bold("Wield Vault")}  ${label(vault)}`);
-  log(`  ${c.dim("â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€")}`);
+  log(`  ${c.dim("-")}`);
 
   const statusColor = paused ? err : ok;
   log(`  Status:       ${statusColor(paused ? "PAUSED" : "ACTIVE")}`);

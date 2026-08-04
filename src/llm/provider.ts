@@ -1,12 +1,12 @@
 /**
- * provider.ts — auto-detect LLM provider from .env, raw fetch() wrapper.
+ * provider.ts - auto-detect LLM provider from .env, raw fetch() wrapper.
  *
  * ZERO LLM dependencies in package.json. Uses native fetch() for:
- *   OPENAI_API_KEY  → OpenAI  (gpt-4o-mini)
- *   ANTHROPIC_API_KEY → Anthropic (claude-3-5-haiku-latest)
- *   OLLAMA_HOST     → Ollama  (llama3.2, local)
+ *   OPENAI_API_KEY  - OpenAI  (gpt-4o-mini)
+ *   ANTHROPIC_API_KEY - Anthropic (claude-3-5-haiku-latest)
+ *   OLLAMA_HOST     - Ollama  (llama3.2, local)
  *
- * No API key → returns helpful message, CLI continues normally.
+ * No API key - returns helpful message, CLI continues normally.
  */
 
 import { log, warn, c } from "../format";
@@ -39,9 +39,9 @@ ${warn("No LLM provider configured.")}
 
 Set one of these environment variables in your .env file:
 
-  OPENAI_API_KEY     →  OpenAI (gpt-4o-mini)
-  ANTHROPIC_API_KEY  →  Anthropic (claude-3-5-haiku-latest)
-  OLLAMA_HOST        →  Ollama local (llama3.2)
+  OPENAI_API_KEY     -  OpenAI (gpt-4o-mini)
+  ANTHROPIC_API_KEY  -  Anthropic (claude-3-5-haiku-latest)
+  OLLAMA_HOST        -  Ollama local (llama3.2)
 
 Examples:
   OPENAI_API_KEY=sk-...
@@ -54,7 +54,7 @@ Examples:
  * caller should print NO_PROVIDER_MSG and exit gracefully.
  */
 export function detectProvider(): LlmConfig | null {
-  // .env is already loaded by loadEnv() in each command — process.env populated
+  // .env is already loaded by loadEnv() in each command - process.env populated
   if (process.env.OPENAI_API_KEY) {
     return {
       provider: "openai",

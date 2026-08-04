@@ -1,5 +1,5 @@
 /**
- * agent explain â€” AI-powered decision explanation.
+ * agent explain - AI-powered decision explanation.
  *
  * Reads a single decision from the agent database by ID, feeds it to an LLM
  * with vault context, and returns a plain-English explanation of what happened.
@@ -7,7 +7,7 @@
  * Required env: RPC_URL, VAULT_ADDRESS, DB_PATH
  * LLM env: at least one of OPENAI_API_KEY, ANTHROPIC_API_KEY, OLLAMA_HOST
  *
- * Read-only â€” never loads private keys.
+ * Read-only - never loads private keys.
  */
 
 import type { Address } from "viem";
@@ -19,7 +19,7 @@ import { EXPLAIN_PROMPT, buildUserMessage } from "../../llm/prompts";
 import { gatherExplainContext } from "../../llm/context";
 
 const HELP = `
-agent explain â€” AI explanation of one decision
+agent explain - AI explanation of one decision
 
 USAGE
   wield agent explain --id <n> [flags]
@@ -77,7 +77,7 @@ export default async function explain(_args: string[], flags: ParsedFlags): Prom
 
   log("");
   log(`  ${c.bold("Wield Decision Explanation")}`);
-  log(`  ${c.dim("â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€")}`);
+  log(`  ${c.dim("-")}`);
   log(`  Provider:  ${label(providerLabel(llm))}`);
   log(`  Decision:  ${label(`#${decisionId}`)}`);
   log(`  DB:        ${label(dbPath)}`);
@@ -86,7 +86,7 @@ export default async function explain(_args: string[], flags: ParsedFlags): Prom
   try {
     log(`  ${c.dim("Fetching decision from database...")}`);
     const ctx = await gatherExplainContext(rpcUrl, vaultAddress as Address, dbPath, decisionId);
-    log(`  ${ok(`Found decision #${decisionId}`)} â€” ${label(ctx.decision.status)} â€” ${label(ctx.decision.ts)}`);
+    log(`  ${ok(`Found decision #${decisionId}`)} - ${label(ctx.decision.status)} - ${label(ctx.decision.ts)}`);
     log("");
     log(`  ${c.dim("Asking AI to explain...")}`);
     log("");
@@ -115,7 +115,7 @@ export default async function explain(_args: string[], flags: ParsedFlags): Prom
     }
 
     // Pretty output
-    log(`  ${c.bold("â”€â”€ Decision Explanation")} ${label(`(${providerLabel(llm)})`)}`);
+    log(`  ${c.bold("- Decision Explanation")} ${label(`(${providerLabel(llm)})`)}`);
     log(`  ${label(`TX: ${ctx.decision.tx_hash ? truncateHash(ctx.decision.tx_hash) : "none"}`)}`);
     log("");
     for (const line of response.split("\n")) {

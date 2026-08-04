@@ -1,8 +1,8 @@
 /**
- * env.ts — load and validate environment variables from cli/.env.
+ * env.ts - load and validate environment variables from cli/.env.
  *
  * Each command declares its required subset; loadEnv returns only those fields.
- * Reads .env file relative to this source file (cli/src/env.ts → cli/.env).
+ * Reads .env file relative to this source file (cli/src/env.ts - cli/.env).
  * Never loads keys that weren't requested.
  */
 

@@ -1,5 +1,5 @@
 /**
- * agent analyze â€” AI-powered vault health report.
+ * agent analyze - AI-powered vault health report.
  *
  * Reads vault state from chain, feeds it to an LLM, and returns a structured
  * health report with TVL, risk assessment, and recommendations.
@@ -8,7 +8,7 @@
  * Optional env: DB_PATH (for recent decision context)
  * LLM env: at least one of OPENAI_API_KEY, ANTHROPIC_API_KEY, OLLAMA_HOST
  *
- * Read-only â€” never loads private keys.
+ * Read-only - never loads private keys.
  */
 
 import type { Address } from "viem";
@@ -20,7 +20,7 @@ import { ANALYZE_PROMPT, buildUserMessage } from "../../llm/prompts";
 import { gatherAnalyzeContext } from "../../llm/context";
 
 const HELP = `
-agent analyze â€” AI vault health report
+agent analyze - AI vault health report
 
 USAGE
   wield agent analyze [flags]
@@ -38,8 +38,8 @@ DESCRIPTION
   Reads vault state from chain, then uses an LLM to produce a structured
   health report: TVL summary, risk assessment, and operator recommendations.
 
-  Provider auto-detection: OPENAI_API_KEY â†’ OpenAI GPT-4o-mini,
-  ANTHROPIC_API_KEY â†’ Anthropic Claude Haiku, OLLAMA_HOST â†’ local Ollama.
+  Provider auto-detection: OPENAI_API_KEY - OpenAI GPT-4o-mini,
+  ANTHROPIC_API_KEY - Anthropic Claude Haiku, OLLAMA_HOST - local Ollama.
 `;
 
 export default async function analyze(_args: string[], flags: ParsedFlags): Promise<void> {
@@ -67,7 +67,7 @@ export default async function analyze(_args: string[], flags: ParsedFlags): Prom
 
   log("");
   log(`  ${c.bold("Wield Vault Analysis")}`);
-  log(`  ${c.dim("â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€")}`);
+  log(`  ${c.dim("-")}`);
   log(`  Provider:  ${label(providerLabel(llm))}`);
   log(`  Vault:     ${label(vaultAddress)}`);
   log(`  DB:        ${label(skipDb ? "skipped" : (dbPath ? "enabled" : "not set (--no-db to skip)"))}`);
@@ -95,7 +95,7 @@ export default async function analyze(_args: string[], flags: ParsedFlags): Prom
     }
 
     // Pretty output
-    log(`  ${c.bold("â”€â”€ AI Health Report")} ${label(`(${providerLabel(llm)})`)}`);
+    log(`  ${c.bold("- AI Health Report")} ${label(`(${providerLabel(llm)})`)}`);
     log("");
     for (const line of response.split("\n")) {
       log(line.startsWith("#") ? `  ${c.bold(line)}` : `  ${line}`);

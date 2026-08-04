@@ -1,8 +1,8 @@
 /**
- * db.ts — read-only access to the agent's SQLite decision log.
+ * db.ts - read-only access to the agent's SQLite decision log.
  *
  * Opens the database at `path` in read-only mode. Throws DB_MISSING if the
- * file does not exist. Never executes CREATE TABLE or INSERT — this CLI only
+ * file does not exist. Never executes CREATE TABLE or INSERT - this CLI only
  * reads what the live agent loop writes.
  */
 

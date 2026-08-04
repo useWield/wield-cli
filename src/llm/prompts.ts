@@ -1,5 +1,5 @@
 /**
- * prompts.ts â€” system prompts for each LLM command.
+ * prompts.ts - system prompts for each LLM command.
  *
  * Prompts are in English (LLM requirement) but CLI output wraps them in
  * user-friendly formatting in each command file.
@@ -19,7 +19,7 @@ Return a structured report with these sections:
 3. **Risk Assessment**: Identify risks (e.g., high concentration, stale allocations, inactive agent).
 4. **Recommendations**: 2-3 actionable suggestions for the operator.
 
-Keep the response concise (under 500 words). Be direct â€” this is for a crypto operator, not a normie.`;
+Keep the response concise (under 500 words). Be direct - this is for a crypto operator, not a normie.`;
 
 // ---- agent explain ----
 
@@ -37,7 +37,7 @@ Your role: explain a single rebalance decision in plain terms.
 3. **On-chain result**: Transaction hash, block confirmation, any error.
 4. **Takeaway**: One-sentence summary a vault operator would care about.
 
-Keep it under 300 words. Be specific â€” reference the actual addresses and amounts.`;
+Keep it under 300 words. Be specific - reference the actual addresses and amounts.`;
 
 // ---- agent suggest ----
 
@@ -55,7 +55,7 @@ Your role: recommend operator actions based on current vault state and recent de
 3. **Risk flags**: Anything the operator should be concerned about?
 4. **Gas & timing**: Rough gas estimate for the next tick, best time to broadcast.
 
-Be practical â€” this operator can run "agent tick --broadcast" to rebalance. Your job is to tell them WHEN and WHY.
+Be practical - this operator can run "agent tick --broadcast" to rebalance. Your job is to tell them WHEN and WHY.
 Keep it under 400 words.`;
 
 // ---- helper: build user message from context ----

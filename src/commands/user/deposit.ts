@@ -1,5 +1,5 @@
 /**
- * user deposit â€” deposit USDC into the vault, receiving shares.
+ * user deposit - deposit USDC into the vault, receiving shares.
  *
  * Required env: RPC_URL, USDC_ADDRESS, VAULT_ADDRESS, USER_PRIVATE_KEY
  */
@@ -15,7 +15,7 @@ import { UserAbort } from "../../cli";
 import { getApiConfig, apiUserDeposit } from "../../api";
 
 const HELP = `
-user deposit â€” Deposit USDC into the vault
+user deposit - Deposit USDC into the vault
 
 USAGE
   wield user deposit --amount <usdc> [flags]
@@ -79,7 +79,7 @@ export default async function deposit(_args: string[], flags: ParsedFlags): Prom
   log(label(`Amount:   ${formatUsdc(amount, decimals)}`));
   log(label(`From:     ${user}`));
   log(label(`Receiver: ${receiver}${receiver === user ? " (self)" : ""}`));
-  log(label(`â†’ Shares: ${previewShares.toLocaleString()}`));
+  log(label(`- Shares: ${previewShares.toLocaleString()}`));
   log("");
 
   // Check allowance

@@ -1,5 +1,5 @@
 /**
- * Smoke test — re-assert the agent's sign functions can be imported and called.
+ * Smoke test - re-assert the agent's sign functions can be imported and called.
  */
 import { describe, test, expect } from "bun:test";
 import { hashIntent, signIntent } from "../src/sign";

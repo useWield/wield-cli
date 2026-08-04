@@ -1,5 +1,5 @@
 /**
- * user approve â€” approve USDC spending for the vault.
+ * user approve - approve USDC spending for the vault.
  *
  * Required env: RPC_URL, USDC_ADDRESS, VAULT_ADDRESS, USER_PRIVATE_KEY
  */
@@ -14,7 +14,7 @@ import { UserAbort } from "../../cli";
 import { getApiConfig, apiUserApprove } from "../../api";
 
 const HELP = `
-user approve â€” Approve USDC spending for the vault
+user approve - Approve USDC spending for the vault
 
 USAGE
   wield user approve --amount <usdc> | --max [flags]
