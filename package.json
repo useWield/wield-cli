@@ -1,0 +1,55 @@
+{
+  "name": "wield-cli",
+  "version": "0.1.2",
+  "description": "CLI for the Wield vault protocol - agent-managed allocation for tokenized real-world assets on Robinhood Chain.",
+  "keywords": [
+    "rwa",
+    "vault",
+    "defi",
+    "agent",
+    "robinhood-chain",
+    "tokenized-equities",
+    "real-world-assets",
+    "allocation",
+    "cli"
+  ],
+  "author": "Wield",
+  "license": "MIT",
+  "homepage": "https://usewield.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/useWield/wield-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/useWield/wield-cli/issues"
+  },
+  "type": "module",
+  "bin": {
+    "wield": "wield"
+  },
+  "files": [
+    "wield.js",
+    "src/",
+    "package.json",
+    "tsconfig.json",
+    "README.md",
+    "bun.lock",
+    ".env.example"
+  ],
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "scripts": {
+    "dev": "bun run src/bin.ts",
+    "cli": "bun run src/bin.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.13",
+    "typescript": "^5.5.0"
+  }
+}
